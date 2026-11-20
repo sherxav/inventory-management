@@ -30,18 +30,25 @@ def add_product(products, name, price, quantity):
     products.append(product)
     return product
 
+add_product(products, "ruler", 15, 40)
+print(len(products))
+
 def find_product(products,name):
     for p in products:
         if p["name"] == name:
             return p
     return None
 
+found = find_product(products,"bag")
+print(found)
+print(find_product(products,"xyz"))
+
 while True:
     print("\n1: Add product")
     print("2: Show All")
     print("3: Total Value")
     print("4: Exit")
-    print("5: Find Product")
+    print("5: Search Product")
     choice = input("Choose: ")
     if choice == "1":
         name = input("name: ")
@@ -59,7 +66,7 @@ while True:
         break
     elif choice == "5":
         name = input("Name to find: ")
-        found = find_product(products,name)
+        found = find_product(products, name)
         if found is None:
             print("Not found")
         else:
@@ -69,6 +76,4 @@ while True:
             print(f"Status: {check_stock(found['quantity'])}")
     else:
         print("Invalid choice")
-
-
 

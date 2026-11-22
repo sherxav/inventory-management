@@ -113,8 +113,8 @@ while True:
         name = input("name: ")
         price = int(input("price: "))
         quantity = int(input("quantity: "))
-        add = add_product(name, price, quantity)
-        print(add)
+        add_product(name, price, quantity)
+        print("Added.")
     elif choice == "2":
         for p in get_all_products():
             print(f"{p['name']}, {p['price']}, {p['quantity']}, {check_stock(p['quantity'])}")
@@ -146,7 +146,6 @@ while True:
             sql = "UPDATE products SET quantity = %s WHERE name = %s"
             cursor.execute(sql, (quantity,name))
             conn.commit()
-            print("Updated")
             print(f"Updated: {found['name']}, price {found['price']},quantity {quantity}")
     elif choice == "7":
         name = input("Name to delete: ")
